@@ -3,15 +3,26 @@ import si from 'systeminformation';
 import { v4 as uuidv4 } from 'uuid';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
 
 const execAsync = promisify(exec);
-
+const MACHINE_ID_FILE: string = path.join(os.homedir(), 'my_system_utility_id');
 export class SystemChecker {
     private machineId: string;
+    
     constructor(machineId?: string) {
-        this.machineId = machineId || uuidv4();
+        if (machineId) {
+            this.machineId = machineId;
+        } else if (fs.existsSync(MACHINE_ID_FILE)) {
+            this.machineId = fs.readFileSync(MACHINE_ID_FILE, 'utf-8').trim();
+        } else {
+            this.machineId = uuidv4();
+            fs.writeFileSync(MACHINE_ID_FILE, this.machineId);
+        }
     }
-
+    
     async checkDiskEncryption(): Promise<{isEncrypted: boolean, status: string}> {
         try{
             const platform = process.platform; 

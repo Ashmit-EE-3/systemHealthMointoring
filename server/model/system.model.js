@@ -8,12 +8,9 @@ const systemSchema = new mongoose.Schema({
     os: {
         platform: {
             type: String,
-            enum: ['win32', 'darwin', 'linux'],
-            required: true,
         },
         version: {
             type: String,
-            required: true,
         },
         updateStatus: {
             current: {
