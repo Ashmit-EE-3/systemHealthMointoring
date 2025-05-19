@@ -8,7 +8,7 @@ const app = express();
 dotenv.config(); 
 
 const mongoURI = process.env.MONGO_URI; 
-const port = process.env.PORT ; 
+const port = 3000 ; 
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,

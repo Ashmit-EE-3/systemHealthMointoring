@@ -1,6 +1,6 @@
 import { SystemChecker } from './systemChecker';
 
-const CHECK_INTERVAL_MINUTES: number = 1;
+const CHECK_INTERVAL_MINUTES: number = 30;
 
 let lastState: Object = {};
 async function getSystemState(): Promise<Object> {
