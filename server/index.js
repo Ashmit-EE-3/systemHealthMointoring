@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const systemRouter = require('./router/system.router');
 
 const app = express();
@@ -13,6 +14,7 @@ const options = {
     useUnifiedTopology: true,
 }
 
+app.use(cors());
 mongoose.connect(mongoURI, options)
 .then(()=>{
     console.log('Connected to MongoDB');

@@ -1,5 +1,5 @@
 export interface SystemCheck {
-  timestamp: string;
+  lastCheckIn: string;
   machineId: string;
   os: {
     platform: string;
@@ -11,11 +11,11 @@ export interface SystemCheck {
     };
   };
   security: {
-    diskEncryption: [{
+    diskEncryption: {
       drive: string;
       isEncrypted: boolean;
       status: string;
-    }];
+    };
     antivirus: {
       isPresent: boolean;
       isActive: boolean;
@@ -28,14 +28,11 @@ export interface SystemCheck {
   };
 }
 
-export interface SystemCheckResult {
-  success: boolean;
-  data?: SystemCheck;
-  error?: string;
-}
-
-export interface Config {
-  apiEndpoint: string;
-  checkInterval: number; // in minutes
-  machineId: string;
+export interface SystemQuery {
+  platform?: string;
+  version?: string;
+  updateStatus?: string;
+  diskEncryption?: string;
+  antivirus?: string;
+  isCompliant?: string;
 } 

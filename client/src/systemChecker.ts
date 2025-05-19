@@ -1,4 +1,4 @@
-import { SystemCheck, SystemCheckResult } from './types';
+import { SystemCheck, SystemQuery} from './types';
 import si from 'systeminformation';
 import { v4 as uuidv4 } from 'uuid';
 import { exec } from 'child_process';
