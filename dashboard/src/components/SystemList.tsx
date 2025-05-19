@@ -176,6 +176,8 @@ const SystemList: React.FC = () => {
                                     <TableCell>Version</TableCell>
                                     <TableCell>Update Status</TableCell>
                                     <TableCell>Disk Encryption</TableCell>
+                                    <TableCell>Current Update</TableCell>
+                                    <TableCell>Latest Update</TableCell>
                                     <TableCell>Antivirus Present</TableCell>
                                     <TableCell>Antivirus Active</TableCell>
                                     <TableCell>Antivirus Name</TableCell>
@@ -200,7 +202,6 @@ const SystemList: React.FC = () => {
                                                 </Tooltip>
                                             )}
                                         </TableCell>
-                                        {/* <TableCell>{system.security?.diskEncryption?.isEncrypted ? 'Yes' : 'No'}</TableCell> */}
                                         <TableCell>
                                             {system.security?.diskEncryption?.isEncrypted ? (
                                                 <CheckCircleIcon color="success" />
@@ -209,6 +210,12 @@ const SystemList: React.FC = () => {
                                                     <ErrorIcon color="error" />
                                                 </Tooltip>
                                             )}
+                                        </TableCell>
+                                        <TableCell>
+                                            {system.os?.updateStatus?.current} 
+                                        </TableCell>
+                                        <TableCell>
+                                            {system.os?.updateStatus?.latest} 
                                         </TableCell>
                                         <TableCell>
                                             {system.security?.antivirus?.isPresent ? (
