@@ -28,7 +28,7 @@ export class SystemChecker {
             const platform = process.platform; 
 
             if (platform === 'win32'){
-                const {stdout} = await execAsync('manage-bde -status C:');
+                const {stdout} = await execAsync('manage-bde -status');
                 const isEncrypted = stdout.includes("Conversion Status:    Fully Encrypted");
                 return {isEncrypted, status: isEncrypted ? "Encrypted" : "Decrypted"};
             }

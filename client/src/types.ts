@@ -11,10 +11,11 @@ export interface SystemCheck {
     };
   };
   security: {
-    diskEncryption: {
+    diskEncryption: [{
+      drive: string;
       isEncrypted: boolean;
       status: string;
-    };
+    }];
     antivirus: {
       isPresent: boolean;
       isActive: boolean;

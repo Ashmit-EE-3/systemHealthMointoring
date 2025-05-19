@@ -5,6 +5,10 @@ const systemSchema = new mongoose.Schema({
         type: String, 
         required: true,
     },
+    lastCheckIn: {
+        type: Date,
+        default: Date.now,
+    },
     os: {
         platform: {
             type: String,
